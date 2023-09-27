@@ -16,14 +16,10 @@ from selenium import webdriver
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 
+from ALL_Test_code.Base import BaseConf
 
-class TestKeyboard:
-    def setup_class(self):
-        self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(3)
 
-    def teardown_class(sef):
-        sef.driver.quit()
+class TestKeyboard(BaseConf):
 
     def test_shift(self):
         """
@@ -108,7 +104,8 @@ class TestKeyboard:
         time.sleep(10)
 
         # 滚动操作
+
     def test_scroll_to_xy(self):
         self.driver.get("https://ceshiren.com/")
-        ActionChains(self.driver).scroll_by_amount(0,1000).perform()
+        ActionChains(self.driver).scroll_by_amount(0, 1000).perform()
         time.sleep(10)
