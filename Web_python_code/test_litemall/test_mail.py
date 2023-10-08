@@ -116,7 +116,8 @@ class TestMall:
         self.driver.find_element(By.CSS_SELECTOR, ".el-dialog__body .el-input__inner").send_keys("删除品牌测试")
         self.driver.find_element(By.XPATH, "//*[@class='el-form el-form--label-left']/div[2]/div/div/input").send_keys(
             "ceshi")
-        self.driver.find_element(By.XPATH, "//*[@class='el-form el-form--label-left']/div[4]/div/div/input").send_keys(
+        self.driver.find_element(By.XPATH,
+                                 "//form[@class='el-form el-form--label-left']/div[4]//input[@class='el-input__inner']").send_keys(
             "2")
         ele = WebDriverWait(self.driver, 10).until(
             expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, ".el-dialog__footer .el-button--primary")))
