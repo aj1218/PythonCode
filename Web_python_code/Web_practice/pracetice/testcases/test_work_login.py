@@ -12,23 +12,10 @@ import time
 import yaml
 from selenium import webdriver
 
-
-class TestCookiesLogin:
-    def setup_class(self):
-        # 准备资源文件,做初始化
-        # 创建一个driver实例变量
-        # 前置
-        self.driver = webdriver.Chrome()
-        self.driver.maximize_window()
-
-    def teardown_class(self):
-        # 后置
-        # 清除所有cookie
-        # self.driver.delete_all_cookies()
-        # self.driver.quit()
-        pass
+from Web_python_code.Web_practice.pracetice.utils.base import BaseConfig
 
 
+class TestCookiesLogin(BaseConfig):
     def test_get_cookies(self):
         # 1,访问企业微信登录
         self.driver.get("https://work.weixin.qq.com/wework_admin/loginpage_wx?from=myhome")
@@ -57,7 +44,7 @@ class TestCookiesLogin:
         # 4、再次访问企业微信主页/ 刷新页面
         self.driver.get("https://work.weixin.qq.com/wework_admin/frame")
         time.sleep(3)
-        
+
 
 
 
