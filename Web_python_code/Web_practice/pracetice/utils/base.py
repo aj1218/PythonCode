@@ -9,6 +9,7 @@
 """
 import time
 
+import allure
 import yaml
 from faker import Faker
 from selenium import webdriver
@@ -41,3 +42,13 @@ class BaseConfig:
         # 清除所有cookie
         # self.driver.delete_all_cookies()
         self.driver.quit()
+
+    # 截图操作
+    def get_acreen(self):
+        timestamp = int(time.time())
+        # 注意:!!一定要提前创建好images 路径
+        image_path = f"./imags/imags_{timestamp}.PNG"
+        # 截图
+        self.driver.save_screenshot(image_path)
+        # 讲截图放到报告的数据中
+        allure.attach.file(image_path, name="picture", attachment_type=allure.attachment_type.PNG)

@@ -14,7 +14,7 @@ from Web_python_code.Web_practice.pracetice.utils.base import BaseConfig
 
 class TestAddMember(BaseConfig):
     def test_addmember(self):
-        # Faker随机生成  改为中文:
+        # Faker随机生成  改为中文:fake = Faker("zh-CN")
         name = self.fake.name()
         accid = self.fake.ssn()
         phonenum = self.fake.phone_number()
@@ -31,3 +31,9 @@ class TestAddMember(BaseConfig):
         self.driver.find_element(By.CSS_SELECTOR, ".js_btn_save").click()  # 4、验证添加成功
         result = self.driver.find_element(By.ID, "js_tips").text
         assert "保存成功" == result
+
+
+
+
+
+

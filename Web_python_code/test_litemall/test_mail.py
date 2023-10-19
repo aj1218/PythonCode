@@ -43,14 +43,7 @@ class TestMall:
     def teardown_class(sef):
         sef.driver.quit()
 
-    def get_acreen(self):
-        timestamp = int(time.time())
-        # 注意:!!一定要提前创建好images 路径
-        image_path = f"./imags/imags_{timestamp}.PNG"
-        # 截图
-        self.driver.save_screenshot(image_path)
-        # 讲截图放到报告的数据中
-        allure.attach.file(image_path, name="picture", attachment_type=allure.attachment_type.PNG)
+
 
     # 新增功能
     def test_add_type(self):
