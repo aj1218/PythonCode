@@ -34,12 +34,11 @@ from selenium.webdriver.common.by import By
 # 先吧装饰器的架子搭好
 # 把相关逻辑嵌套进来
 
-#=====问题4:隐藏的小bug，一旦被装饰方法有返回值，会丢失返回值解决方案:
+# =====问题4:隐藏的小bug，一旦被装饰方法有返回值，会丢失返回值解决方案:
 # 当被装饰方法/函数发生异常就捕获并做数据记录
-        # return func(*args，**kwargs)
+# return func(*args，**kwargs)
 def ui_exceptlon_record(func):
     def inner(*args, **kwargs):
-
 
         try:
             # 当被装饰方法/函数 发生异常就捕获并做数据记录
@@ -104,11 +103,10 @@ class TestBaidu:
             raise Exception
 
         self.driver.quit()
+
     @ui_exceptlon_record
     def test_baidu1(self):
         self.driver = webdriver.Chrome()
         self.driver.get("https://www.baidu.com/")
-        self.driver.find_element(By.ID, "su1")
+        self.driver.find_element(By.ID, "su")
         self.driver.quit()
-
-
